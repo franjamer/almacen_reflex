@@ -1,1 +1,2 @@
-reflex==0.5.10
+pipx==1.7.1
+reflex-simpleicons==0.0.5
