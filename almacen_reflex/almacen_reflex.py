@@ -6,45 +6,53 @@ class State(rx.State):
 
 def index() -> rx.Component:
     return rx.container(rx.text("Página principal", color= "white"),
-    rx.vstack(
-        rx.button(
-        rx.link(
-            "Pagina busqueda", 
-            color="white",
-            href="/busqueda"
+    rx.stack(
+        rx.vstack(
+            rx.button(
+            rx.link(
+                "Pagina busqueda", 
+                color="white",
+                href="/busqueda"
+                )
+            ),
+            rx.button(
+            rx.link(
+                "Pagina Detalle", 
+                color="white",
+                href="/detalle"
+                )
+            ),
+            rx.button(
+            rx.link(
+                "Pagina Pedidos", 
+                color="white",
+                href="/pedidos"
+                )
             )
         ),
-        rx.button(
-        rx.link(
-            "Pagina Detalle", 
-            color="white",
-            href="/detalle"
-            )
-        ),
-        rx.button(
-        rx.link(
-            "Pagina Pedidos", 
-            color="white",
-            href="/pedidos"
-            )
-        ),
-        rx.button(
-        rx.link(
-            "Pagina Movimientos", 
-            color="white",
-            href="/movimientos"
-            )
-        ),
-        rx.button(
-        rx.link(
-            "Pagina Inventario", 
-            color="white",
-            href="/inventario"
+        rx.text("Menú Principal"),
+        rx.vstack(
+            rx.button(
+                rx.link(
+                    "Pagina Movimientos", 
+                    color="white",
+                    href="/movimientos"
+                )
+            ),
+            rx.button(
+                rx.link(
+                    "Pagina Inventario", 
+                    color="white",
+                    href="/inventario"
+                )
             )
         )
+        
+    )
     )
     
-    )
+    
+    
     
 def Busqueda():
     return rx.vstack(
