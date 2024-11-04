@@ -4,7 +4,7 @@ from almacen_reflex.componentes.botones import menu_boton
 def colcen() -> rx.Component:
     return rx.vstack(
         menu_boton("",""),
-            width="100%",
+            width="85vw",
             height="93vh",
             max_heigth="100%",
             max_width="100%",

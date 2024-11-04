@@ -8,7 +8,7 @@ def colder() -> rx.Component:
                 menu_boton("Inventario","inventario"),
                 menu_boton("Home",""),
                 background_color= "white",
-                width="100%",
+                width="6vw",
                 height="93vh",
                 max_heigth="100%",                
                 align="end"            

@@ -7,7 +7,7 @@ def colizq() -> rx.Component:
                 menu_boton("Detalle","detalle"),
                 menu_boton("Pedidos","pedidos"),
                 background_color= "white",
-                width="100%",
+                width="6vw",
                 height="93vh",
                 max_heigth="100%",
                 padding="2px",
