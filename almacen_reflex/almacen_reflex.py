@@ -1,6 +1,9 @@
-import reflex as rx  # Usa reflex como alias en lugar de importar rx directamente.
+# Usa reflex como alias en lugar de importar rx directamente.
+import reflex as rx
 
 # Definir el estado
+
+
 class State(rx.State):
     current_component: str = "home"
 
@@ -8,30 +11,40 @@ class State(rx.State):
         self.current_component = component
 
 # Componentes principales
+
+
 def home_component():
     return rx.box("Bienvenido al componente Home", padding="2em", bg="lightblue")
+
 
 def about_component():
     return rx.box("Información sobre nosotros", padding="2em", bg="lightgreen")
 
+
 def contact_component():
     return rx.box("Contáctanos aquí", padding="2em", bg="lightcoral")
 
+
 def services_component():
     return rx.box("Nuestros servicios", padding="2em", bg="lightyellow")
+
 
 def legal_component():
     return rx.box("Nuestros compromisos", padding="2em", bg="lightyellow")
 
 # # Sidebar
+
+
 def sidebar():
     return rx.box(
         rx.button("Home", on_click=lambda: State.set_component("home")),
         rx.button("About", on_click=lambda: State.set_component("about")),
         rx.button("Contact", on_click=lambda: State.set_component("contact")),
-        rx.button("Services", on_click=lambda: State.set_component("services")),  # Nuevo botón
-        rx.button("Legal", on_click=lambda: State.set_component("legal")),  # Nuevo botón
-        
+        rx.button("Services", on_click=lambda: State.set_component(
+            "services")),  # Nuevo botón
+        rx.button("Legal", on_click=lambda: State.set_component(
+            "legal")),  # Nuevo botón
+
         width="20%",
         height="100vh",
         bg="gray",
@@ -55,8 +68,6 @@ def main_area():
     )
 
 
-
-
 # Página principal
 def main_page():
     return rx.flex(
@@ -69,36 +80,9 @@ def main_page():
         direction="row",
     )
 
+
 app = rx.App()
 app.add_page(main_page, route="/")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # app = rx.App()
@@ -110,10 +94,10 @@ app.add_page(main_page, route="/")
 # # from almacen_reflex.vistas.main_area import main_area
 # # from almacen_reflex.vistas.home import main_area
 
-# """ 
+# """
 # CÓDIGO VALIDO
 
-# El siguiente código funciona perfectamente, pero quiero aprovechar los 
+# El siguiente código funciona perfectamente, pero quiero aprovechar los
 # componentes que ya tengo yo hechos.
 # """
 # # # Definir el estado
@@ -207,10 +191,10 @@ app.add_page(main_page, route="/")
 # class State(rx.State):
 #     actual_componente: str= "index"
 #     def sel_componente(self,componente: str):
-#         self.actual_componente =  componente   
+#         self.actual_componente =  componente
 
 
-# # 
+# #
 # def index() -> rx.Component:
 #     return rx.flex(
 #         main_area(),
