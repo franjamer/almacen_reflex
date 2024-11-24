@@ -3,10 +3,10 @@ import reflex as rx
 from almacen_reflex.componentes.sidebar import sidebar
 from almacen_reflex.componentes.footer import footer
 
-class State(rx.State):
-    actual_componente: str= "home"
-    def sel_componente(self,componente: str):
-        self.actual_componente =  componente   
+# class State(rx.State):
+#     actual_componente: str= "home"
+#     def sel_componente(self,componente: str):
+#         self.actual_componente =  componente   
 
 
 # # Área principal dinámica

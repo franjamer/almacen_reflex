@@ -1,16 +1,6 @@
 import reflex as rx  # Usa reflex como alias en lugar de importar rx directamente.
-# from almacen_reflex.vistas.home import home
-# from almacen_reflex.state import state
-# from almacen_reflex.vistas.main_area import main_area
-# from almacen_reflex.vistas.home import main_area
 
-""" 
-CÓDIGO VALIDO
-
-El siguiente código funciona perfectamente, pero quiero aprovechar los 
-componentes que ya tengo yo hechos.
-"""
-# # Definir el estado
+# Definir el estado
 class State(rx.State):
     current_component: str = "home"
 
@@ -27,46 +17,30 @@ def about_component():
 def contact_component():
     return rx.box("Contáctanos aquí", padding="2em", bg="lightcoral")
 
-def busqueda_component():
-    return rx.box("Opción Búsqueda aquí", padding="2em",bg="lightred")
+def services_component():
+    return rx.box("Nuestros servicios", padding="2em", bg="lightyellow")
 
-# Sidebar
+def legal_component():
+    return rx.box("Nuestros compromisos", padding="2em", bg="lightyellow")
+
+# # Sidebar
 def sidebar():
-    return rx.vstack(
+    return rx.box(
         rx.button("Home", on_click=lambda: State.set_component("home")),
         rx.button("About", on_click=lambda: State.set_component("about")),
         rx.button("Contact", on_click=lambda: State.set_component("contact")),
-        rx.button("Busqueda",on_click=lambda: State.set_component("busqueda")),
+        rx.button("Services", on_click=lambda: State.set_component("services")),  # Nuevo botón
+        rx.button("Legal", on_click=lambda: State.set_component("legal")),  # Nuevo botón
+        
         width="20%",
         height="100vh",
         bg="gray",
         padding="1em",
-        justify="between",
-        align="center"
-        # spacing="1em",
+        spacing="1em",
     )
 
+
 # Área principal dinámica
-# def main_area():
-#     return rx.cond(
-#         State.current_component == "home",
-#         home_component(),
-#         rx.cond(
-#             State.current_component == "about",
-#             about_component(),
-#             rx.cond(
-#                 State.current_component == "contact",
-#                 contact_component(),
-#                 rx.cond(
-#                     State.current_component == "busqueda",
-#                     busqueda_component(),
-#                     home_component()
-#                 )
-#             ),
-#         ),
-#     )
-
-
 def main_area():
     return rx.switch(
         State.current_component,
@@ -75,9 +49,12 @@ def main_area():
             "about": about_component(),
             "contact": contact_component(),
             "busqueda": busqueda_component(),
+            "legal": legal_component()
         },
         home_component(),  # Valor por defecto si no coincide ninguna opción
     )
+
+
 
 
 # Página principal
@@ -94,6 +71,137 @@ def main_page():
 
 app = rx.App()
 app.add_page(main_page, route="/")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# app = rx.App()
+# app.add_page(main_page, route="/")
+
+# import reflex as rx  # Usa reflex como alias en lugar de importar rx directamente.
+# # from almacen_reflex.vistas.home import home
+# # from almacen_reflex.state import state
+# # from almacen_reflex.vistas.main_area import main_area
+# # from almacen_reflex.vistas.home import main_area
+
+# """ 
+# CÓDIGO VALIDO
+
+# El siguiente código funciona perfectamente, pero quiero aprovechar los 
+# componentes que ya tengo yo hechos.
+# """
+# # # Definir el estado
+# class State(rx.State):
+#     current_component: str = "home"
+
+#     def set_component(self, component: str):
+#         self.current_component = component
+
+# # Componentes principales
+
+# def inicio_component():
+#     return rx.box("Bienvenido al componente Inicio", padding="2em", bg="lightblue")
+
+# def home_component():
+#     return rx.box("Bienvenido al componente Home", padding="2em", bg="lightblue")
+
+# def about_component():
+#     return rx.box("Información sobre nosotros", padding="2em", bg="lightgreen")
+
+# def contact_component():
+#     return rx.box("Contáctanos aquí", padding="2em", bg="lightcoral")
+
+# def busqueda_component():
+#     return rx.box("Opción Búsqueda aquí", padding="2em",bg="lightred")
+
+# # Sidebar
+# def sidebar():
+#     return rx.vstack(
+#         rx.button("Home", on_click=lambda: State.set_component("home")),
+#         rx.button("About", on_click=lambda: State.set_component("about")),
+#         rx.button("Contact", on_click=lambda: State.set_component("contact")),
+#         rx.button("Busqueda",on_click=lambda: State.set_component("busqueda")),
+#         width="20%",
+#         height="100vh",
+#         bg="gray",
+#         padding="1em",
+#         justify="between",
+#         align="center"
+#         # spacing="1em",
+#     )
+
+# # # Área principal dinámica
+# # def main_area():
+# #     return rx.cond(
+# #         State.current_component == "home",
+# #         home_component(),
+# #         rx.cond(
+# #             State.current_component == "about",
+# #             about_component(),
+# #             rx.cond(
+# #                 State.current_component == "contact",
+# #                 contact_component(),
+# #                 rx.cond(
+# #                     State.current_component == "busqueda",
+# #                     busqueda_component(),
+# #                     home_component()
+# #                 )
+# #             ),
+# #         ),
+# #     )
+
+
+# def main_area():
+#     return rx.switch(
+#         State.current_component,
+#         {
+#             "home": home_component(),
+#             "about": about_component(),
+#             "contact": contact_component(),
+#             "busqueda": busqueda_component(),
+#         },
+#         inicio_component(),  # Valor por defecto si no coincide ninguna opción
+#     )
+
+
+# # Página principal
+# def main_page():
+#     return rx.flex(
+#         # sidebar(),
+#         rx.box(
+#             main_area(),
+#             width="80%",
+#             padding="2em",
+#         ),
+#         direction="row",
+#     )
+
 
 """Fin del CÓDIGO VÁLIDO"""
 # class State(rx.State):
