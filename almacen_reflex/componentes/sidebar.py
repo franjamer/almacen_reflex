@@ -1,8 +1,10 @@
 import reflex as rx
+class State(rx.State):
+    def algun_metodo(self):
+        ruta_actual_dela_pagina=self.router.page.path
+        url_actual_dela_pagina=self.router.page.raw_path
 
-def sidebar_item(
-    text: str, icon: str, href: str
-) -> rx.Component:
+def sidebar_item(text: str, icon: str, href: str) -> rx.Component:
     return rx.link(
         rx.hstack(
             rx.icon(icon),
@@ -12,6 +14,8 @@ def sidebar_item(
             padding_y="0.75rem",
             align="center",
             style={
+                "bg": "red",
+                "color": "white",
                 "_hover": {
                     "bg": rx.color("white", 4),
                     "color": rx.color("red", 11),
@@ -28,11 +32,12 @@ def sidebar_item(
 
 def sidebar_items() -> rx.Component:
     return rx.vstack(
-        sidebar_item("Movimientos", "layout-dashboard", "/#"),
-        sidebar_item("Projects", "square-library", "/#"),
-        sidebar_item("Analytics", "bar-chart-4", "/#"),
-        sidebar_item("Messages", "mail", "/#"),
-        spacing="1",
+        sidebar_item("Busqueda", "layout-dashboard", "pagina1"),
+        sidebar_item("Detalle", "square-library", "About"),
+        sidebar_item("Pedidos", "bar-chart-4", "Custom"),
+        sidebar_item("Movimientos de Almacén", "layout-dashboard", "pagina1"),
+        sidebar_item("Inventario General", "square-library", "About"),
+        spacing="3",
         width="100%",
     )
 
@@ -43,13 +48,13 @@ def sidebar() -> rx.Component:
             rx.vstack(
                 rx.hstack(
                     rx.image(
-                        src="/favicon.ico",
+                        src="/logo_apis_personalizado.png",
                         width="2.25em",
                         height="auto",
                         border_radius="25%",
                     ),
                     rx.heading(
-                        "Apis", size="7", weight="bold",color="white"
+                        "Apis", size="7", weight="bold", color="white"
                     ),
                     align="center",
                     justify="start",
@@ -63,16 +68,17 @@ def sidebar() -> rx.Component:
                 # top="0px",
                 # z_index="5",
                 padding_x="1em",
-                padding_y="1.5em",
-                # bg=rx.color("red", 6),
-                bg="red",
-                color="white",
+                # padding_y="1em",
+                bg=rx.color("red", 6),
+                # bg="red",
+                # color="white",
                 align="align-justify",
                 justify="center",
-                # height="100%",
-                height="650px",
+                height="100vh",
+                # height="650px",
                 width="12em",
-                
+                # margin_y="0",
+
             ),
         ),
         rx.mobile_and_tablet(
@@ -105,6 +111,30 @@ def sidebar() -> rx.Component:
                 ),
                 direction="left",
             ),
-            padding="1em",
+            # padding="1em",
+        ),
+        height="90vh"
+    )
+
+
+    @rx.page(route="/pagina1", title="Página 1")
+    def pagina1() -> rx.Component:
+        return rx.fragment(
+        rx.text("Estoy en la Página 1"),
+        rx.button(
+            "Volver a Principal",
+            on_click=rx.redirect("/")
         ),
     )
+
+
+def about() -> rx.Component:
+    return rx.stack(
+        rx.text(
+            "About Page"),
+        rx.button(
+            "regreso a principal", on_click=rx.redirect("/")),
+        rx.button(
+            "Custom", on_click=rx.redirect("/custom")),
+    )
+

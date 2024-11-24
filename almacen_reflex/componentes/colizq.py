@@ -17,33 +17,33 @@ def colizq() -> rx.Component:
     sidebar(),
 )
 
-def Pagina1()-> rx.Component:
-    return rx.stack(
-        rx.text("Estoy en la Página 1"),
-        rx.button(
-            "Volver a Principal",
-            on_click=rx.redirect("/")),
-    )
+# def Pagina1()-> rx.Component:
+#     return rx.stack(
+#         rx.text("Estoy en la Página 1"),
+#         rx.button(
+#             "Volver a Principal",
+#             on_click=rx.redirect("/")),
+#     )
 
-def About()-> rx.Component:
-    return rx.stack(
-    rx.text(
-        "About Page"),
-    rx.button(
-        "regreso a principal", on_click=rx.redirect("/")),
-    rx.button(
-        "Custom", on_click=rx.redirect("/custom")),
-)
+# def About()-> rx.Component:
+#     return rx.stack(
+#     rx.text(
+#         "About Page"),
+#     rx.button(
+#         "regreso a principal", on_click=rx.redirect("/")),
+#     rx.button(
+#         "Custom", on_click=rx.redirect("/custom")),
+# )
 
-def Custom():
-    return rx.stack(
-        rx.box(
-            rx.button("regreso a principal", on_click=rx.redirect("/")),
-            rx.text("Custom Route")
-            )        
-        )
+# def Custom():
+#     return rx.stack(
+#         rx.box(
+#             rx.button("regreso a principal", on_click=rx.redirect("/")),
+#             rx.text("Custom Route")
+#             )        
+#         )
 
-app = rx.App()
-app.add_page(Pagina1)
-app.add_page(About)
-app.add_page(Custom)
+# app = rx.App()
+# app.add_page(Pagina1)
+# app.add_page(About)
+# app.add_page(Custom)
