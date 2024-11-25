@@ -2,8 +2,8 @@ import reflex as rx
 
 
 def home_component():
-    return rx.box(
-        rx.center(
+    return rx.center(
+        rx.box(
             rx.vstack(
                 rx.heading(
                     "Centro de Producción de Montijo",
