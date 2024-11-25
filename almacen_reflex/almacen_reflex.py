@@ -9,8 +9,9 @@ def main_page():
         sidebar(),
         rx.box(
             main_area(),
-            width="80%",
-            padding="2em",
+            width="100vw",
+            padding="0.1em",
+            bg="black"
         ),
         direction="row",
     )

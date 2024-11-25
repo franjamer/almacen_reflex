@@ -5,19 +5,23 @@ from almacen_reflex.state import State
 
 def sidebar():
     return rx.box(
-        rx.vstack(
+        rx.stack(
 
         rx.button("Home", on_click=lambda: State.set_component("home")),
-        rx.button("About", on_click=lambda: State.set_component("about")),
-        rx.button("Contact", on_click=lambda: State.set_component("contact")),
         rx.button("Busqueda", on_click=lambda: State.set_component("busqueda")),
-        rx.button("Legal", on_click=lambda:State.set_component("legal")),
-        justify="between",
-        align="center"
+        rx.button("Detalle", on_click=lambda: State.set_component("detalle")),
+        rx.button("Pedidos", on_click=lambda: State.set_component("pedidos")),
+        rx.button("Movimientos", on_click=lambda:State.set_component("movimientos")),
+        rx.button("Inventario", on_click=lambda:State.set_component("inventario")),
+
+        justify= "end",
+        align="center",
+        spacing="9",
+        direction="column",
         ),
-        width="20%",
+        width="10%",
         height="100vh",
-        bg="gray",
+        bg="red",
         padding="1em",
         spacing="1em",
     )
