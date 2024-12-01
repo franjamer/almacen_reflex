@@ -3,6 +3,7 @@ import reflex as rx
 from almacen_reflex.state import State
 from almacen_reflex.main_area import main_area
 from almacen_reflex.componentes.sidebar_component import sidebar
+from .usuario_pagina import user_page
 
 
 # Página principal
@@ -24,3 +25,4 @@ def main_page():
 
 app = rx.App()
 app.add_page(main_page, route="/")
+app.add_page(user_page, route="/usuarios")

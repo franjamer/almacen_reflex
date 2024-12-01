@@ -16,6 +16,7 @@ def sidebar():
             rx.button("Inventario",
                       on_click=lambda: State.set_component("inventario")),
 
+
             justify="end",
             align="center",
             spacing="9",
