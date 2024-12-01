@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "./ent_vir_almacen_reflex/bin/python",  // Ruta al entorno virtual
+    "editor.formatOnSave": true,            // Formatear automáticamente al guardar
+    "files.autoSave": "onFocusChange"       // Guardar automáticamente al cambiar de ventana
+}
