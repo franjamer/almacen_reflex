@@ -1,6 +1,5 @@
-*.db
 *.py[cod]
-.web
+*.db
 __pycache__/
+.web
 assets/external/
-ev_alm_reflex/
